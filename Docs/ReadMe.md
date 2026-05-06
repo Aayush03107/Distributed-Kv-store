@@ -21,16 +21,17 @@ Instead of physical shards, the system uses **logical partitions**:
 * Each key is mapped to a **partition**
 * Each partition is backed by a **Raft cluster (5 nodes)**
 
-```id="ks40zv"
-Client → Load Balancer → Hash(key) → Partition → Raft Cluster
-```
-
 The load balancer:
 
 * Parses the RESP request
 * Extracts the key
 * Computes its hash
 * Routes the request to the correct partition
+
+
+## Architecture Design
+
+<img width="1344" height="627" alt="Screenshot 2026-05-07 at 1 06 27 AM" src="https://github.com/user-attachments/assets/1c8136e9-77a5-42eb-8987-15cffb2c4bd8" />
 
 ## Important Detail
 
@@ -39,7 +40,6 @@ These are **logical partitions**, not independent shard servers:
 * Data distribution is based on hashing
 * Partitions are pre-defined (no dynamic rebalancing yet)
 * Each partition is tightly coupled with its Raft group
-* 
 
 
 ## How to Run it 
@@ -53,12 +53,16 @@ These are **logical partitions**, not independent shard servers:
        npm run dev
 
 
-## Architecture Design
-
-<img width="1344" height="627" alt="Screenshot 2026-05-07 at 1 06 27 AM" src="https://github.com/user-attachments/assets/1c8136e9-77a5-42eb-8987-15cffb2c4bd8" />
-
 ## Cluster Zoom in
 
 <img width="1291" height="621" alt="Screenshot 2026-05-07 at 1 07 13 AM" src="https://github.com/user-attachments/assets/55cc3a27-49d2-4db8-bccd-af9b0ed7f817" />
+
+## References And For Deeper Understanding
+If you want to understand Raft in detail refer to these resources:
+  1) Raft Paper : https://raft.github.io/raft.pdf
+  2) Raft algorithm Simulator: https://deniz.co/raft-consensus/
+  3) Video Reference : https://www.youtube.com/watch?v=uXEYuDwm7e4&t=1790s
+
+
 
 
