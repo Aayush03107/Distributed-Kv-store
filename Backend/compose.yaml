@@ -1,0 +1,118 @@
+services:
+  node1:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft1
+    command: ["./Raft", "-port=5001", "-shardId=1", "-filename=nodes6001.txt", "-id=1"]
+
+  node2:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft2
+    command: ["./Raft", "-port=5002", "-shardId=1", "-filename=nodes6001.txt", "-id=2"]
+
+  node3:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft3
+    command: ["./Raft", "-port=5003", "-shardId=1", "-filename=nodes6001.txt", "-id=3"]
+
+  node4:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft4
+    command: ["./Raft", "-port=5004", "-shardId=1", "-filename=nodes6001.txt", "-id=4"]
+
+  node5:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft5
+    command: ["./Raft", "-port=5005", "-shardId=1", "-filename=nodes6001.txt", "-id=5"]
+
+  node6:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft6
+    command: ["./Raft", "-port=5006", "-shardId=2", "-filename=nodes6002.txt", "-id=6"]
+
+  node7:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft7
+    command: ["./Raft", "-port=5007", "-shardId=2", "-filename=nodes6002.txt", "-id=7"]
+
+  node8:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft8
+    command: ["./Raft", "-port=5008", "-shardId=2", "-filename=nodes6002.txt", "-id=8"]
+
+  node9:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft9
+    command: ["./Raft", "-port=5009", "-shardId=2", "-filename=nodes6002.txt", "-id=9"]
+
+  node10:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft10
+    command: ["./Raft", "-port=5010", "-shardId=2", "-filename=nodes6002.txt", "-id=10"]
+
+  node11:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft11
+    command: ["./Raft", "-port=5011", "-shardId=3", "-filename=nodes6003.txt", "-id=11"]
+
+  node12:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft12
+    command: ["./Raft", "-port=5013", "-shardId=3", "-filename=nodes6003.txt", "-id=12"]
+
+  node13:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft13
+    command: ["./Raft", "-port=5014", "-shardId=3", "-filename=nodes6003.txt", "-id=13"]
+
+  node14:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft14
+    command: ["./Raft", "-port=5015", "-shardId=3", "-filename=nodes6003.txt", "-id=14"]
+
+  node15:
+    build:
+      context: ./
+      dockerfile: Node/Dockerfile
+    container_name: raft15
+    command: ["./Raft", "-port=5018", "-shardId=3", "-filename=nodes6003.txt", "-id=15"]
+
+  lb:
+    build:
+      context: ./
+      dockerfile: LB/Dockerfile
+    container_name: lb
+    command: ["./lb", "-port=7001"]
+
+  client:
+    build: .
+    container_name: client
+    ports:
+      - "7002:7002"
