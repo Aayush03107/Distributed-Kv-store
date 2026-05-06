@@ -51,3 +51,14 @@ These are **logical partitions**, not independent shard servers:
 3. Start the Frontend:
        cd Frontend
        npm run dev
+
+
+## Architecture Design
+
+<img width="1344" height="627" alt="Screenshot 2026-05-07 at 1 06 27 AM" src="https://github.com/user-attachments/assets/1c8136e9-77a5-42eb-8987-15cffb2c4bd8" />
+
+## Cluster Zoom in
+
+<img width="1291" height="621" alt="Screenshot 2026-05-07 at 1 07 13 AM" src="https://github.com/user-attachments/assets/55cc3a27-49d2-4db8-bccd-af9b0ed7f817" />
+
+
